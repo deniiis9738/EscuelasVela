@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <report
+        id="escuelas_vela.informe_monitor"
+        string="Informe sobre Monitores"
+        model="escuelas_vela.monitor"
+        report_type="qweb-pdf"
+        name="escuelas_vela.informe_monitor_view"
+        file="escuelas_vela.informe_monitor_view"/>
+    
+    <template id="informe_monitor_view">
+        <t t-call="web.basic_layout">
+            <t t-foreach="docs" t-as="monitor">
+                <div class="page">
+                    <h1 t-field="monitor.name"/>
+                    <div>
+                        <strong>Teléfono: </strong>
+                        <span t-field="monitor.telefono"/>
+                    </div>
+                    <div>
+                        <strong>Dirección: </strong>
+                        <span t-field="monitor.direccion"/>
+                    </div>
+                    <div>
+                        <strong>Ciudad: </strong>
+                        <span t-field="monitor.ciudad"/>
+                    </div>
+                    <div>
+                        <strong>Código Postal: </strong>
+                        <span t-field="monitor.codigo_postal"/>
+                    </div>
+                    <div>
+                        <strong>Código de Identificación: </strong>
+                        <span t-field="monitor.identification_code"/>
+                    </div>
+                    <div>
+                        <strong>Escuelas Colaboradoras: </strong>
+                        <t t-foreach="monitor.escuelas_ids" t-as="escuela">
+                            <span t-field="escuela.name"/>
+                            <br/>
+                        </t>
+                    </div>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

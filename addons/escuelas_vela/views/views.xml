@@ -39,6 +39,11 @@
             <field name="view_mode">tree,form</field>
         </record>
 
+        <record model="ir.ui.menu" id="escuelas_vela.menu_root">
+            <field name="name">Escuelas de Vela</field>
+            <!-- Otros campos y configuraciones según tus necesidades -->
+        </record>
+
         <!-- Menú para el modelo Escuela -->
         <menuitem name="Escuelas" id="escuelas_vela.escuela_menu" parent="escuelas_vela.menu_root" action="escuelas_vela.escuela_action_window"/>
 
